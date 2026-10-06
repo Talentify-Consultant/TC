@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Talentify Consultant is a talent and HR consultancy in Cairo: recruitment, training, labor law advice, HR systems for startups and payroll.">
+<meta name="theme-color" content="#231F20">
+<meta property="og:title" content="Talentify Consultant">
+<meta property="og:description" content="Let's find the right fit for your team. Recruitment, training, labor law, HR systems and payroll.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Talentify Consultant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: ink band (nav + hero) on top, light content sections in the middle, ink footer. The stepped T is the grid motif: blocks that step down and right. */
+:root{
+  --ink:#231F20; --mint:#3FFFA8; --gold:#E39E25; --cream:#F9F3E4;
+  --bg:#FBF8F0; --surface:#F9F3E4; --card:#FFFFFF; --fg:#231F20; --muted:#625C5D; --line:#E7E1D0;
+  --gold-text:#8A5A07; --mint-soft:#CFFFE6; --gold-soft:#FFE9BE;
+  --band:#231F20; --band-fg:#F9F3E4; --band-muted:#B5ADAE; --band-line:#3A3435;
+  --font:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --gutter:clamp(16px,5vw,56px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1A1718; --surface:#211D1E; --card:#2A2526; --fg:#F6F1E6; --muted:#ABA4A5; --line:#3A3435;
+  --gold-text:#E8B04A; --mint-soft:#1F4A37; --gold-soft:#4A3511;
+  --band:#141112; --band-line:#2F2A2B; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#1A1718; --surface:#211D1E; --card:#2A2526; --fg:#F6F1E6; --muted:#ABA4A5; --line:#3A3435;
+  --gold-text:#E8B04A; --mint-soft:#1F4A37; --gold-soft:#4A3511;
+  --band:#141112; --band-line:#2F2A2B; color-scheme:dark;}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance;line-height:1.15;letter-spacing:-0.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text)}
+.band .eyebrow{color:var(--gold)}
+
+/* nav + hero */
+.band{background:var(--band);color:var(--band-fg)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+nav img{height:44px;width:auto;display:block}
+.navlinks{display:flex;gap:28px;align-items:center;font-size:14px;font-weight:500}
+.navlinks a{text-decoration:none;color:var(--band-muted);transition:color .15s}
+.navlinks a:hover{color:var(--band-fg)}
+.navlinks a.btn,.navlinks a.btn:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:14px;font:600 15px/1 var(--font);text-decoration:none;border:0;cursor:pointer;transition:transform .15s,background .15s}
+.btn:active{transform:translateY(1px)}
+.btn-mint{background:var(--mint);color:var(--ink)}
+.btn-mint:hover{background:#6BFFBF}
+.btn-line{background:transparent;color:var(--band-fg);box-shadow:inset 0 0 0 1.5px var(--band-line)}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--band-muted)}
+.btn-ink{background:var(--fg);color:var(--bg)}
+.nav-cta{min-height:40px;padding:0 18px;font-size:14px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,80px);align-items:center;padding-block:clamp(40px,8vw,96px) clamp(56px,9vw,112px)}
+.hero h1{font-size:clamp(38px,6.2vw,68px);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--mint)}
+.hero p.lead{margin-top:22px;font-size:clamp(16px,2vw,19px);color:var(--band-muted);max-width:34em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .meta{margin-top:28px;font-size:13px;color:var(--band-muted);display:flex;flex-wrap:wrap;gap:8px 20px}
+.hero .meta span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:3px;background:var(--mint);margin-inline-end:8px}
+
+/* shortlist card */
+.short{background:#2C2728;border:1px solid var(--band-line);border-radius:22px;padding:22px;min-width:0}
+.short-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px}
+.short-h b{font-size:15px}
+.short-h span{font-size:11px;color:var(--band-muted);letter-spacing:.08em;text-transform:uppercase}
+.short .role{font-size:13px;color:var(--band-muted);margin-bottom:16px}
+.cand{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--band-line)}
+.av{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-weight:600;font-size:13px;color:var(--ink)}
+.cand .nm{font-weight:600;font-size:15px;line-height:1.3}
+.cand .sub{font-size:12px;color:var(--band-muted)}
+.score{text-align:end;font-weight:700;font-size:18px;font-variant-numeric:tabular-nums;color:var(--mint)}
+.bar{grid-column:2/4;height:6px;border-radius:3px;background:#3A3435;overflow:hidden;margin-top:-2px}
+.bar i{display:block;height:100%;background:var(--mint);border-radius:3px}
+.short .note{margin-top:14px;font-size:12px;color:var(--band-muted)}
+
+/* sections */
+section{padding-block:clamp(56px,9vw,104px)}
+.sec-h{max-width:640px;margin-bottom:clamp(28px,5vw,48px)}
+.sec-h h2{font-size:clamp(28px,4.2vw,44px);font-weight:700;margin-top:12px}
+.sec-h p{margin-top:14px;color:var(--muted)}
+
+.services{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.svc{grid-column:span 2;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.svc:nth-child(n+4){grid-column:span 3}
+.blk{width:40px;height:40px;position:relative}
+.blk::before,.blk::after{content:"";position:absolute;border-radius:6px}
+.blk{direction:ltr}
+.blk::before{left:0;top:0;width:40px;height:18px;background:var(--fg)}
+.blk::after{left:14px;top:22px;width:14px;height:18px;background:var(--c)}
+.svc h3{font-size:21px;font-weight:600}
+.svc p{color:var(--muted);font-size:15px}
+.svc ul{list-style:none;margin:auto 0 0;padding:14px 0 0;border-top:1px solid var(--line);display:grid;gap:6px;font-size:14px}
+.svc li{display:flex;gap:10px}
+.svc li::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;border-radius:2px;background:var(--gold)}
+
+.approach{background:var(--surface)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.step{padding-block:0;padding-inline:0 24px;position:relative;min-width:0}
+.step::before{counter-increment:s;content:"Step " counter(s);display:block;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-text);margin-bottom:34px}
+.step::after{content:"";position:absolute;inset-inline:0;top:26px;height:2px;background:var(--line)}
+.step .dot{position:absolute;inset-inline-start:0;top:20px;width:14px;height:14px;border-radius:5px;background:var(--mint);z-index:1}
+.step h3{font-size:19px;font-weight:600;margin-bottom:8px}
+.step p{font-size:15px;color:var(--muted)}
+
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.val{padding:24px;border-radius:20px;background:var(--surface);min-width:0}
+.val:nth-child(odd){background:var(--band);color:var(--band-fg)}
+.val:nth-child(odd) p{color:var(--band-muted)}
+.val h3{font-size:20px;font-weight:600;margin-bottom:8px}
+.val p{font-size:14px;color:var(--muted)}
+.say{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.say div{border:1px solid var(--line);border-radius:20px;padding:24px;background:var(--card);min-width:0}
+.say h3{font-size:15px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.say h3 i{width:22px;height:22px;border-radius:8px;display:grid;place-items:center;font-style:normal;font-size:13px;color:var(--ink);background:var(--mint)}
+.say .no i{background:#E0564A;color:#fff}
+.say p{font-size:15px;padding:6px 0}
+.say .no p{color:var(--muted)}
+
+.book{background:var(--band);color:var(--band-fg)}
+.book-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.book h2{font-size:clamp(28px,4.2vw,44px);font-weight:700;margin-top:12px}
+.book .lead{margin-top:16px;color:var(--band-muted);max-width:30em}
+form{display:grid;gap:16px;min-width:0}
+.f{display:grid;gap:6px;min-width:0}
+label{font-size:13px;font-weight:500;color:var(--band-muted)}
+input,select,textarea{width:100%;font:400 16px/1.4 var(--font);color:var(--band-fg);background:#2C2728;border:1.5px solid var(--band-line);border-radius:12px;padding:13px 14px;min-height:48px}
+textarea{min-height:104px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--mint)}
+input::placeholder,textarea::placeholder{color:#7C7475}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact{margin-top:28px;display:grid;gap:10px;max-width:420px}
+.ct{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;background:#2C2728;border:1px solid var(--band-line);border-radius:14px;padding:12px 14px;min-width:0}
+.ct small{grid-column:1;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--band-muted)}
+.ct b{grid-column:1;justify-self:start;font-weight:500;font-size:16px;overflow-wrap:anywhere;user-select:all}
+.ct .cp{grid-column:2;grid-row:1/3;min-height:36px;padding:0 14px;font-size:13px;border-radius:10px}
+.ct a.wa{grid-column:1/3;font-size:13px;color:var(--mint);margin-top:2px}
+.out{background:#2C2728;border:1.5px dashed var(--mint);border-radius:14px;padding:16px;font-size:14px;white-space:pre-wrap;word-break:break-word;display:none}
+.out.on{display:block}
+.hint{font-size:13px;color:var(--band-muted)}
+.hint b{color:var(--band-fg);font-weight:500}
+
+footer{background:var(--band);color:var(--band-muted);border-top:1px solid var(--band-line)}
+.foot{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:center;padding-block:32px;font-size:13px}
+.foot img{height:56px;width:auto}
+.lang{min-width:84px}
+html[lang="ar"]{--font:'Cairo','Poppins',system-ui,-apple-system,'Segoe UI',sans-serif}
+html[lang="ar"] *{letter-spacing:0!important}
+html[lang="ar"] body{line-height:1.75}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.35}
+html[lang="ar"] .eyebrow,html[lang="ar"] .step::before,html[lang="ar"] .short-h span,html[lang="ar"] .ct small{text-transform:none}
+html[lang="ar"] .step::before{content:"الخطوة " counter(s)}
+html[lang="ar"] select{background-position:left 12px center}
+
+@media (max-width:900px){
+  .hero,.book-grid{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr 1fr}
+  .svc,.svc:nth-child(n+4){grid-column:span 1}
+  .svc:last-child{grid-column:1/-1}
+  .steps{grid-template-columns:1fr 1fr;row-gap:36px}
+  .values{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  .navlinks a:not(.btn){display:none}
+  nav img{height:38px}
+  .services,.steps,.values,.say,.row2{grid-template-columns:1fr}
+  .svc:last-child{grid-column:auto}
+  .step{padding-inline-end:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+
+<div class="band">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a href="#top" aria-label="Talentify Consultant home"><img src="logo.png" alt="Talentify Consultant"></a>
+      <div class="navlinks">
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#approach" data-i18n="nav_how">How we work</a>
+        <a href="#principles" data-i18n="nav_principles">Principles</a>
+        <button class="btn btn-line nav-cta lang" type="button" id="lang" aria-label="Switch language">العربية</button>
+        <a class="btn btn-mint nav-cta" href="#book" data-i18n="cta">Book a consultation</a>
+      </div>
+    </nav>
+    <header class="hero" id="top">
+      <div>
+        <p class="eyebrow" data-i18n="hero_eyebrow">Talent and HR consultancy</p>
+        <h1 style="margin-top:14px" data-i18n-html="hero_h1">Let's find the right fit for <em>your team.</em></h1>
+        <p class="lead" data-i18n="hero_lead">We connect organisations with the right people and help both grow. Hiring, training, contracts, HR setup and payroll, with plain advice you can act on.</p>
+        <div class="actions">
+          <a class="btn btn-mint" href="#book" data-i18n="cta">Book a consultation</a>
+          <a class="btn btn-line" href="#services" data-i18n="hero_see">See our services</a>
+        </div>
+        <p class="meta"><span data-i18n="meta1">We reply within 24 hours</span><span data-i18n="meta2">No jargon, no pressure</span></p>
+      </div>
+      <aside class="short" aria-label="Example of a candidate shortlist">
+        <div class="short-h"><b data-i18n="sl_role">Sales Manager</b><span data-i18n="sl_tag">Shortlist</span></div>
+        <p class="role" data-i18n="sl_sub">3 of 14 screened candidates, ranked by fit</p>
+        <div class="cand"><div class="av" style="background:#CFFFE6" data-i18n="c1i">OF</div><div><div class="nm" data-i18n="c1n">Omar Fathy</div><div class="sub" data-i18n="c1s">7 years · Available now</div></div><div class="score">92%</div><div class="bar"><i style="width:92%"></i></div></div>
+        <div class="cand"><div class="av" style="background:#FFE9BE" data-i18n="c2i">MA</div><div><div class="nm" data-i18n="c2n">Mariam Adel</div><div class="sub" data-i18n="c2s">6 years · Notice 30 days</div></div><div class="score">88%</div><div class="bar"><i style="width:88%"></i></div></div>
+        <div class="cand"><div class="av" style="background:#E7E1D0" data-i18n="c3i">YS</div><div><div class="nm" data-i18n="c3n">Youssef Samir</div><div class="sub" data-i18n="c3s">5 years · Notice 60 days</div></div><div class="score">81%</div><div class="bar"><i style="width:81%"></i></div></div>
+        <p class="note" data-i18n="sl_note">Sample data, shown to illustrate how a shortlist looks.</p>
+      </aside>
+    </header>
+  </div>
+</div>
+
+<main>
+<section id="services">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="eyebrow" data-i18n="nav_services">Services</p>
+      <h2 data-i18n="svc_h">Everything your team needs, from the first hire to the monthly payslip</h2>
+      <p data-i18n="svc_p">Use one service or all five. Each starts with a short conversation about what you need.</p>
+    </div>
+    <div class="services">
+      <article class="svc" style="--c:var(--mint)"><div class="blk" aria-hidden="true"></div><h3 data-i18n="s1t">Recruitment</h3><p data-i18n="s1p">We source, screen and shortlist candidates so you only interview people who fit the role and the team.</p><ul><li data-i18n="s1a">Role scoping with your team</li><li data-i18n="s1b">Screened shortlist in days</li><li data-i18n="s1c">Interview scheduling and feedback</li></ul></article>
+      <article class="svc" style="--c:var(--gold)"><div class="blk" aria-hidden="true"></div><h3 data-i18n="s2t">Training and development</h3><p data-i18n="s2p">Practical programs for managers and staff, built around the skills your business needs next.</p><ul><li data-i18n="s2a">Skills gap assessment</li><li data-i18n="s2b">Workshops and coaching</li><li data-i18n="s2c">Progress tracking per employee</li></ul></article>
+      <article class="svc" style="--c:var(--mint)"><div class="blk" aria-hidden="true"></div><h3 data-i18n="s3t">Labor law advice</h3><p data-i18n="s3p">Clear guidance on contracts, policies and disputes, so decisions about people stay on solid ground.</p><ul><li data-i18n="s3a">Employment contract review</li><li data-i18n="s3b">Internal policy drafting</li><li data-i18n="s3c">Guidance on terminations and disputes</li></ul></article>
+      <article class="svc" style="--c:var(--gold)"><div class="blk" aria-hidden="true"></div><h3 data-i18n="s4t">HR systems for startups</h3><p data-i18n="s4p">Lightweight HR foundations for young companies: roles, onboarding, leave and records in one place.</p><ul><li data-i18n="s4a">Org chart and role descriptions</li><li data-i18n="s4b">Onboarding checklists</li><li data-i18n="s4c">Leave and records setup</li></ul></article>
+      <article class="svc" style="--c:var(--mint)"><div class="blk" aria-hidden="true"></div><h3 data-i18n="s5t" data-i18n="o5">Payroll</h3><p data-i18n="s5p">Monthly payroll handled end to end, including insurance and tax deductions.</p><ul><li data-i18n="s5a">Monthly salary processing</li><li data-i18n="s5b">Insurance and tax deductions</li><li data-i18n="s5c">Payslips for every employee</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="approach" id="approach">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="eyebrow" data-i18n="nav_how">How we work</p>
+      <h2 data-i18n="ap_h">Four steps, and you always know what comes next</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="dot"></span><h3 data-i18n="st1t">Listen</h3><p data-i18n="st1p">A short call about your team, your goals and what is not working today.</p></div>
+      <div class="step"><span class="dot"></span><h3 data-i18n="st2t">Recommend</h3><p data-i18n="st2p">We tell you what we recommend, and why, in plain words.</p></div>
+      <div class="step"><span class="dot"></span><h3 data-i18n="st3t">Deliver</h3><p data-i18n="st3p">We do the work with you: shortlists, programs, policies or payroll.</p></div>
+      <div class="step"><span class="dot"></span><h3 data-i18n="st4t">Follow up</h3><p data-i18n="st4p">We check that it worked, and adjust until it does.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="principles">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="eyebrow" data-i18n="nav_principles">Principles</p>
+      <h2 data-i18n="pr_h">How we think, and how we talk</h2>
+    </div>
+    <div class="values">
+      <div class="val"><h3 data-i18n="v1t">People first</h3><p data-i18n="v1p">Every decision starts with the people it affects.</p></div>
+      <div class="val"><h3 data-i18n="v2t">Clarity</h3><p data-i18n="v2p">Honest, simple advice without jargon.</p></div>
+      <div class="val"><h3 data-i18n="v3t">Growth</h3><p data-i18n="v3p">We measure success by the progress of our clients and candidates.</p></div>
+      <div class="val"><h3 data-i18n="v4t">Integrity</h3><p data-i18n="v4p">We do what we say and keep what we are told in confidence.</p></div>
+    </div>
+    <div class="say">
+      <div><h3><i aria-hidden="true">✓</i><span data-i18n="say_h">We say</span></h3><p data-i18n="q1">"Here is what we recommend, and why."</p><p data-i18n="q2">"Your CV is strong. Let's sharpen it."</p><p data-i18n="q3">"We will reply within 24 hours."</p></div>
+      <div class="no"><h3><i aria-hidden="true">✕</i><span data-i18n="nosay_h">We don't say</span></h3><p data-i18n="n1">"Leveraging synergies to optimise human capital."</p><p data-i18n="n2">"Act now! Limited slots!!!"</p><p data-i18n="n3">"Your application has been processed."</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <p class="eyebrow" data-i18n="cta">Book a consultation</p>
+      <h2 data-i18n="bk_h">Tell us what you need</h2>
+      <p class="lead" data-i18n="bk_lead">A few lines are enough. We will suggest a time and a consultant who fits your question, and reply within 24 hours.</p>
+      <div class="contact">
+        <div class="ct"><small data-i18n="ct_wa">WhatsApp and phone</small><b dir="ltr">01156908570</b><button class="btn btn-line cp" type="button" data-copy="01156908570" data-i18n="copy">Copy</button><a class="wa" href="https://wa.me/201156908570" target="_blank" rel="noopener" data-i18n="open_wa">Open WhatsApp</a></div>
+        <div class="ct"><small data-i18n="ct_em">Email</small><b dir="ltr">emam34168@gmail.com</b><button class="btn btn-line cp" type="button" data-copy="emam34168@gmail.com" data-i18n="copy">Copy</button></div>
+      </div>
+    </div>
+    <form id="req" novalidate>
+      <div class="row2">
+        <div class="f"><label for="n" data-i18n="l_name">Your name</label><input id="n" autocomplete="name" placeholder="Sara Ahmed" data-i18n-ph="ph_name"></div>
+        <div class="f"><label for="c" data-i18n="l_co">Company</label><input id="c" autocomplete="organization" placeholder="Nile Foods" data-i18n-ph="ph_co"></div>
+      </div>
+      <div class="f"><label for="t" data-i18n="l_topic">What do you need help with?</label>
+        <select id="t"><option data-i18n="o1">Hiring</option><option data-i18n="o2">Training</option><option data-i18n="o3">Contracts</option><option data-i18n="o4">HR systems</option><option data-i18n="s5t" data-i18n="o5">Payroll</option></select></div>
+      <div class="f"><label for="m" data-i18n="l_msg">A few lines about your situation</label><textarea id="m" placeholder="We need to hire a sales manager in Cairo within six weeks." data-i18n-ph="ph_msg"></textarea></div>
+      <button class="btn btn-mint" type="submit" id="go" data-i18n="go">Prepare my request</button>
+      <div class="out" id="out" role="status"></div>
+      <div id="after" hidden>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a class="btn btn-mint" id="wa" href="https://wa.me/201156908570" target="_blank" rel="noopener" data-i18n="send_wa">Send on WhatsApp</a>
+          <button class="btn btn-line" type="button" id="copy" data-i18n="copy_req">Copy request</button>
+        </div>
+        <p class="hint" style="margin-top:12px" data-i18n-html="hint">This page does not send messages itself. WhatsApp opens with your request filled in. You can also copy it and email it to <b>emam34168@gmail.com</b>.</p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="logo.png" alt="Talentify Consultant">
+    <span data-i18n-html="foot">© 2026 Talentify Consultant. Cairo, Egypt. · <bdi>01156908570</bdi> · <bdi>emam34168@gmail.com</bdi></span>
+  </div>
+</footer>
+
+<script>
+/* All website copy lives here. To edit a sentence, change it below in both languages. */
+var I18N = {
+ "en": {
+  "nav_services": "Services",
+  "nav_how": "How we work",
+  "nav_principles": "Principles",
+  "cta": "Book a consultation",
+  "hero_eyebrow": "Talent and HR consultancy",
+  "hero_lead": "We connect organisations with the right people and help both grow. Hiring, training, contracts, HR setup and payroll, with plain advice you can act on.",
+  "hero_see": "See our services",
+  "meta1": "We reply within 24 hours",
+  "meta2": "No jargon, no pressure",
+  "sl_role": "Sales Manager",
+  "sl_tag": "Shortlist",
+  "sl_sub": "3 of 14 screened candidates, ranked by fit",
+  "c1i": "OF",
+  "c1n": "Omar Fathy",
+  "c1s": "7 years · Available now",
+  "c2i": "MA",
+  "c2n": "Mariam Adel",
+  "c2s": "6 years · Notice 30 days",
+  "c3i": "YS",
+  "c3n": "Youssef Samir",
+  "c3s": "5 years · Notice 60 days",
+  "sl_note": "Sample data, shown to illustrate how a shortlist looks.",
+  "svc_h": "Everything your team needs, from the first hire to the monthly payslip",
+  "svc_p": "Use one service or all five. Each starts with a short conversation about what you need.",
+  "s1t": "Recruitment",
+  "s1p": "We source, screen and shortlist candidates so you only interview people who fit the role and the team.",
+  "s1a": "Role scoping with your team",
+  "s1b": "Screened shortlist in days",
+  "s1c": "Interview scheduling and feedback",
+  "s2t": "Training and development",
+  "s2p": "Practical programs for managers and staff, built around the skills your business needs next.",
+  "s2a": "Skills gap assessment",
+  "s2b": "Workshops and coaching",
+  "s2c": "Progress tracking per employee",
+  "s3t": "Labor law advice",
+  "s3p": "Clear guidance on contracts, policies and disputes, so decisions about people stay on solid ground.",
+  "s3a": "Employment contract review",
+  "s3b": "Internal policy drafting",
+  "s3c": "Guidance on terminations and disputes",
+  "s4t": "HR systems for startups",
+  "s4p": "Lightweight HR foundations for young companies: roles, onboarding, leave and records in one place.",
+  "s4a": "Org chart and role descriptions",
+  "s4b": "Onboarding checklists",
+  "s4c": "Leave and records setup",
+  "s5t": "Payroll",
+  "s5p": "Monthly payroll handled end to end, including insurance and tax deductions.",
+  "s5a": "Monthly salary processing",
+  "s5b": "Insurance and tax deductions",
+  "s5c": "Payslips for every employee",
+  "ap_h": "Four steps, and you always know what comes next",
+  "st1t": "Listen",
+  "st1p": "A short call about your team, your goals and what is not working today.",
+  "st2t": "Recommend",
+  "st2p": "We tell you what we recommend, and why, in plain words.",
+  "st3t": "Deliver",
+  "st3p": "We do the work with you: shortlists, programs, policies or payroll.",
+  "st4t": "Follow up",
+  "st4p": "We check that it worked, and adjust until it does.",
+  "pr_h": "How we think, and how we talk",
+  "v1t": "People first",
+  "v1p": "Every decision starts with the people it affects.",
+  "v2t": "Clarity",
+  "v2p": "Honest, simple advice without jargon.",
+  "v3t": "Growth",
+  "v3p": "We measure success by the progress of our clients and candidates.",
+  "v4t": "Integrity",
+  "v4p": "We do what we say and keep what we are told in confidence.",
+  "q1": "\"Here is what we recommend, and why.\"",
+  "q2": "\"Your CV is strong. Let's sharpen it.\"",
+  "q3": "\"We will reply within 24 hours.\"",
+  "n1": "\"Leveraging synergies to optimise human capital.\"",
+  "n2": "\"Act now! Limited slots!!!\"",
+  "n3": "\"Your application has been processed.\"",
+  "bk_h": "Tell us what you need",
+  "bk_lead": "A few lines are enough. We will suggest a time and a consultant who fits your question, and reply within 24 hours.",
+  "ct_wa": "WhatsApp and phone",
+  "ct_em": "Email",
+  "copy": "Copy",
+  "open_wa": "Open WhatsApp",
+  "l_name": "Your name",
+  "l_co": "Company",
+  "l_topic": "What do you need help with?",
+  "l_msg": "A few lines about your situation",
+  "o1": "Hiring",
+  "o2": "Training",
+  "o3": "Contracts",
+  "o4": "HR systems",
+  "o5": "Payroll",
+  "go": "Prepare my request",
+  "send_wa": "Send on WhatsApp",
+  "copy_req": "Copy request",
+  "hero_h1": "Let's find the right fit for <em>your team.</em>",
+  "say_h": "We say",
+  "nosay_h": "We don't say",
+  "hint": "This page does not send messages itself. WhatsApp opens with your request filled in. You can also copy it and email it to <b>emam34168@gmail.com</b>.",
+  "foot": "© 2026 Talentify Consultant. Cairo, Egypt. · <bdi>01156908570</bdi> · <bdi>emam34168@gmail.com</bdi>",
+  "ph_name": "Sara Ahmed",
+  "ph_co": "Nile Foods",
+  "ph_msg": "We need to hire a sales manager in Cairo within six weeks.",
+  "m_hello": "Hello Talentify team,",
+  "m_about": "I would like to book a consultation about: ",
+  "m_name": "Name: ",
+  "m_co": "Company: ",
+  "m_none": "(not given)",
+  "m_copied": "Copied",
+  "m_sel": "Selected. Press copy.",
+  "title": "Talentify Consultant",
+  "switch": "العربية",
+  "switch_label": "Switch to Arabic"
+ },
+ "ar": {
+  "nav_services": "الخدمات",
+  "nav_how": "طريقة عملنا",
+  "nav_principles": "مبادئنا",
+  "cta": "احجز استشارة",
+  "hero_eyebrow": "استشارات المواهب والموارد البشرية",
+  "hero_lead": "بنربط المؤسسات بالناس المناسبين ونساعد الطرفين على النمو. توظيف وتدريب وعقود وتأسيس للموارد البشرية ورواتب، بنصيحة واضحة تقدر تنفّذها.",
+  "hero_see": "شوف خدماتنا",
+  "meta1": "بنرد خلال 24 ساعة",
+  "meta2": "من غير تعقيد ولا ضغط",
+  "sl_role": "مدير مبيعات",
+  "sl_tag": "القائمة المختصرة",
+  "sl_sub": "3 مرشحين من 14 تم فحصهم، مرتبين حسب الملاءمة",
+  "c1i": "ع ف",
+  "c1n": "عمر فتحي",
+  "c1s": "7 سنين خبرة · متاح فورًا",
+  "c2i": "م ع",
+  "c2n": "مريم عادل",
+  "c2s": "6 سنين خبرة · إشعار 30 يوم",
+  "c3i": "ي س",
+  "c3n": "يوسف سمير",
+  "c3s": "5 سنين خبرة · إشعار 60 يوم",
+  "sl_note": "بيانات تجريبية، لتوضيح شكل القائمة المختصرة.",
+  "svc_h": "كل اللي فريقك محتاجه، من أول تعيين لحد مرتب آخر الشهر",
+  "svc_p": "استخدم خدمة واحدة أو الخمسة. كل خدمة بتبدأ بمحادثة قصيرة عن احتياجك.",
+  "s1t": "التوظيف",
+  "s1p": "بنبحث ونفحص ونرشّح، فتقابل بس الناس المناسبين للوظيفة وللفريق.",
+  "s1a": "تحديد الوظيفة مع فريقك",
+  "s1b": "قائمة مرشحين مفحوصين في أيام",
+  "s1c": "جدولة المقابلات وجمع الملاحظات",
+  "s2t": "التدريب والتطوير",
+  "s2p": "برامج عملية للمديرين والموظفين، مبنية على المهارات اللي شغلك محتاجها بعد كده.",
+  "s2a": "تقييم فجوة المهارات",
+  "s2b": "ورش عمل وكوتشينج",
+  "s2c": "متابعة تقدم كل موظف",
+  "s3t": "الاستشارات العمالية",
+  "s3p": "إرشاد واضح للعقود والسياسات والنزاعات، عشان قراراتك بخصوص الناس تبقى على أرض ثابتة.",
+  "s3a": "مراجعة عقود العمل",
+  "s3b": "صياغة السياسات الداخلية",
+  "s3c": "إرشاد في الفصل والنزاعات",
+  "s4t": "نظم الموارد البشرية للشركات الناشئة",
+  "s4p": "أساسات موارد بشرية خفيفة للشركات الصغيرة: الوظائف والتعيين الجديد والإجازات والسجلات في مكان واحد.",
+  "s4a": "الهيكل التنظيمي ووصف الوظائف",
+  "s4b": "قوائم استقبال الموظفين الجدد",
+  "s4c": "إعداد الإجازات والسجلات",
+  "s5t": "الرواتب",
+  "s5p": "إدارة الرواتب شهريًا من الألف للياء، شاملة التأمينات والضرائب.",
+  "s5a": "معالجة الرواتب الشهرية",
+  "s5b": "خصومات التأمينات والضرائب",
+  "s5c": "قسيمة راتب لكل موظف",
+  "ap_h": "أربع خطوات، وإنت دايمًا عارف الجاي",
+  "st1t": "نسمع",
+  "st1p": "مكالمة قصيرة عن فريقك وأهدافك واللي مش ماشي دلوقتي.",
+  "st2t": "نوصي",
+  "st2p": "بنقولك بنوصي بإيه وليه، بكلام بسيط.",
+  "st3t": "ننفّذ",
+  "st3p": "بننفّذ معاك: قوائم مرشحين أو برامج أو سياسات أو رواتب.",
+  "st4t": "نتابع",
+  "st4p": "بنتأكد إنه نجح، ونعدّل لحد ما ينجح.",
+  "pr_h": "إزاي بنفكر وإزاي بنتكلم",
+  "v1t": "الناس أولًا",
+  "v1p": "كل قرار بيبدأ من الناس اللي هيتأثروا بيه.",
+  "v2t": "الوضوح",
+  "v2p": "نصيحة صادقة وبسيطة من غير مصطلحات معقدة.",
+  "v3t": "النمو",
+  "v3p": "بنقيس النجاح بتقدم عملائنا والمرشحين.",
+  "v4t": "النزاهة",
+  "v4p": "بنعمل اللي بنقوله، وبنحافظ على سرية اللي بيتقال لنا.",
+  "q1": "\"ده اللي بنوصي بيه، وده السبب.\"",
+  "q2": "\"سيرتك الذاتية قوية. تعالى نحسّنها.\"",
+  "q3": "\"هنرد عليك خلال 24 ساعة.\"",
+  "n1": "\"نستثمر التآزر لتحسين رأس المال البشري.\"",
+  "n2": "\"اتصرف دلوقتي! الأماكن محدودة!!!\"",
+  "n3": "\"تمت معالجة طلبك.\"",
+  "bk_h": "قولنا محتاج إيه",
+  "bk_lead": "كام سطر كفاية. هنقترح عليك ميعاد ومستشار مناسب لسؤالك، وهنرد خلال 24 ساعة.",
+  "ct_wa": "واتساب وموبايل",
+  "ct_em": "الإيميل",
+  "copy": "نسخ",
+  "open_wa": "افتح واتساب",
+  "l_name": "اسمك",
+  "l_co": "الشركة",
+  "l_topic": "محتاج مساعدة في إيه؟",
+  "l_msg": "كام سطر عن وضعك",
+  "o1": "التوظيف",
+  "o2": "التدريب",
+  "o3": "العقود",
+  "o4": "نظم الموارد البشرية",
+  "o5": "الرواتب",
+  "go": "جهّز طلبي",
+  "send_wa": "ابعت على واتساب",
+  "copy_req": "انسخ الطلب",
+  "hero_h1": "خلّينا نلاقي الشخص المناسب <em>لفريقك.</em>",
+  "say_h": "إحنا بنقول",
+  "nosay_h": "إحنا مش بنقول",
+  "hint": "الصفحة دي مش بتبعت رسايل بنفسها. واتساب بيفتح والطلب مكتوب جاهز. وتقدر كمان تنسخه وتبعته على <b dir=\"ltr\">emam34168@gmail.com</b>.",
+  "foot": "© 2026 Talentify Consultant. القاهرة، مصر. · <bdi>01156908570</bdi> · <bdi>emam34168@gmail.com</bdi>",
+  "ph_name": "سارة أحمد",
+  "ph_co": "نايل فودز",
+  "ph_msg": "محتاجين نوظف مدير مبيعات في القاهرة خلال ستة أسابيع.",
+  "m_hello": "أهلًا فريق Talentify،",
+  "m_about": "عايز أحجز استشارة بخصوص: ",
+  "m_name": "الاسم: ",
+  "m_co": "الشركة: ",
+  "m_none": "(مش مذكور)",
+  "m_copied": "تم النسخ",
+  "m_sel": "اتحدد النص. اضغط نسخ.",
+  "title": "Talentify Consultant | استشارات الموارد البشرية",
+  "switch": "English",
+  "switch_label": "Switch to English"
+ }
+};
+
+(function(){
+  var KEY='talentify-site-lang', lang='en';
+  var out=document.getElementById('out'),after=document.getElementById('after'),copy=document.getElementById('copy'),form=document.getElementById('req'),btn=document.getElementById('lang');
+  function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.en[k]||k}
+  function apply(l){
+    lang=l; var d=document.documentElement; d.lang=l; d.dir=(l==='ar'?'rtl':'ltr');
+    document.title=t('title');
+    document.querySelectorAll('[data-i18n]').forEach(function(n){n.textContent=t(n.getAttribute('data-i18n'))});
+    document.querySelectorAll('[data-i18n-html]').forEach(function(n){n.innerHTML=t(n.getAttribute('data-i18n-html'))});
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(n){n.placeholder=t(n.getAttribute('data-i18n-ph'))});
+    btn.textContent=t('switch'); btn.setAttribute('aria-label',t('switch_label'));
+    if(out.classList.contains('on')) build();
+  }
+  function pick(){
+    try{var s=localStorage.getItem(KEY); if(s==='ar'||s==='en') return s}catch(e){}
+    return ((navigator.language||'').toLowerCase().indexOf('ar')===0)?'ar':'en';
+  }
+  btn.addEventListener('click',function(){
+    var n=(lang==='en')?'ar':'en'; apply(n);
+    try{localStorage.setItem(KEY,n)}catch(e){}
+  });
+  function v(id){return document.getElementById(id).value.trim()}
+  function build(){
+    var topicEl=document.getElementById('t'), topic=topicEl.options[topicEl.selectedIndex].text;
+    var lines=[t('m_hello'),'',t('m_about')+topic+'.'];
+    if(v('m')) lines.push('',v('m'));
+    lines.push('',t('m_name')+(v('n')||t('m_none')),t('m_co')+(v('c')||t('m_none')));
+    out.textContent=lines.join('\n'); out.classList.add('on'); after.hidden=false;
+    document.getElementById('wa').href='https://wa.me/201156908570?text='+encodeURIComponent(out.textContent);
+  }
+  form.addEventListener('submit',function(e){e.preventDefault();build()});
+  document.getElementById('t').addEventListener('change',function(){if(out.classList.contains('on'))build()});
+  copy.addEventListener('click',function(){
+    var text=out.textContent;
+    function done(){copy.textContent=t('m_copied'); setTimeout(function(){copy.textContent=t('copy_req')},1800)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(out);var s=getSelection();s.removeAllRanges();s.addRange(r);copy.textContent=t('m_sel')}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,fallback)}else{fallback()}
+  });
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var x=b.getAttribute('data-copy');
+      function ok(){b.textContent=t('m_copied');setTimeout(function(){b.textContent=t('copy')},1500)}
+      function sel(){var n=b.parentNode.querySelector('b');var r=document.createRange();r.selectNodeContents(n);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(x).then(ok,sel)}else{sel()}
+    });
+  });
+  apply(pick());
+})();
+</script>
+
+</body>
+</html>
